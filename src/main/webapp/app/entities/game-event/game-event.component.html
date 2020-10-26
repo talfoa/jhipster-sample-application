@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.gameEvent.home.title">Game Events</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-game-event" [routerLink]="['/game-event/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.gameEvent.home.createLabel">
+            Create a new Game Event
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="gameEvents?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.gameEvent.home.notFound">No gameEvents found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="gameEvents && gameEvents.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.gameEvent.timeOfMessage">Time Of Message</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.gameEvent.gameEventId">Game Event Id</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.gameEvent.eventType">Event Type</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.gameEvent.team">Team</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.gameEvent.active">Active</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.gameEvent.timeOfEventOccurence">Time Of Event Occurence</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.gameEvent.match">Match</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let gameEvent of gameEvents ;trackBy: trackId">
+                    <td><a [routerLink]="['/game-event', gameEvent.id, 'view']">{{ gameEvent.id }}</a></td>
+                    <td>{{ gameEvent.timeOfMessage | date:'medium' }}</td>
+                    <td>{{ gameEvent.gameEventId }}</td>
+                    <td jhiTranslate="{{ 'jhipsterSampleApplicationApp.GameEventType.' + gameEvent.eventType }}">{{ gameEvent.eventType }}</td>
+                    <td jhiTranslate="{{ 'jhipsterSampleApplicationApp.TeamHomeOrAway.' + gameEvent.team }}">{{ gameEvent.team }}</td>
+                    <td>{{ gameEvent.active }}</td>
+                    <td>{{ gameEvent.timeOfEventOccurence | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="gameEvent.matchId">
+                            <a [routerLink]="['/match', gameEvent.matchId , 'view']" >{{ gameEvent.matchId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/game-event', gameEvent.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/game-event', gameEvent.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(gameEvent)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

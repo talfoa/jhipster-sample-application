@@ -1,0 +1,74 @@
+{
+  "name": "Match",
+  "fields": [
+    {
+      "fieldName": "timeOfMessage",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "matchId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "matchDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "cornerSending",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "sport",
+      "otherEntityRelationshipName": "match",
+      "relationshipName": "sport",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "region",
+      "otherEntityRelationshipName": "match",
+      "relationshipName": "region",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "league",
+      "otherEntityRelationshipName": "match",
+      "relationshipName": "league",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "team",
+      "otherEntityRelationshipName": "match",
+      "relationshipName": "homeTeam",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "team",
+      "otherEntityRelationshipName": "match",
+      "relationshipName": "awayTeam",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20201026013103",
+  "entityTableName": "match",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

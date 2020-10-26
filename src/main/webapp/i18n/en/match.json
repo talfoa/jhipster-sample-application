@@ -1,0 +1,30 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "match": {
+      "home": {
+        "title": "Matches",
+        "createLabel": "Create a new Match",
+        "createOrEditLabel": "Create or edit a Match",
+        "notFound": "No Matches found"
+      },
+      "created": "A new Match is created with identifier {{ param }}",
+      "updated": "A Match is updated with identifier {{ param }}",
+      "deleted": "A Match is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Match {{ id }}?"
+      },
+      "detail": {
+        "title": "Match"
+      },
+      "timeOfMessage": "Time Of Message",
+      "matchId": "Match Id",
+      "matchDate": "Match Date",
+      "cornerSending": "Corner Sending",
+      "sport": "Sport",
+      "region": "Region",
+      "league": "League",
+      "homeTeam": "Home Team",
+      "awayTeam": "Away Team"
+    }
+  }
+}

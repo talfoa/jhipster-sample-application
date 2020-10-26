@@ -1,0 +1,57 @@
+{
+  "name": "ScoreBoard",
+  "fields": [
+    {
+      "fieldName": "timeOfMessage",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "gamePart",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "score",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "scorePart",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hidden",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "hideTimer",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "remainingTimeInPeriod",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "relativePlayerCount",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "match",
+      "otherEntityRelationshipName": "scoreBoard",
+      "relationshipName": "match",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201026013303",
+  "entityTableName": "score_board",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

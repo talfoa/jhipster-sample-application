@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="scoreBoard">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.scoreBoard.detail.title">Score Board</span> {{ scoreBoard.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.scoreBoard.timeOfMessage">Time Of Message</span></dt>
+                <dd>
+                    <span>{{ scoreBoard.timeOfMessage }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.scoreBoard.gamePart">Game Part</span></dt>
+                <dd>
+                    <span>{{ scoreBoard.gamePart }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.scoreBoard.score">Score</span></dt>
+                <dd>
+                    <span>{{ scoreBoard.score }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.scoreBoard.scorePart">Score Part</span></dt>
+                <dd>
+                    <span>{{ scoreBoard.scorePart }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.scoreBoard.hidden">Hidden</span></dt>
+                <dd>
+                    <span>{{ scoreBoard.hidden }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.scoreBoard.hideTimer">Hide Timer</span></dt>
+                <dd>
+                    <span>{{ scoreBoard.hideTimer }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.scoreBoard.remainingTimeInPeriod">Remaining Time In Period</span></dt>
+                <dd>
+                    <span>{{ scoreBoard.remainingTimeInPeriod }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.scoreBoard.relativePlayerCount">Relative Player Count</span></dt>
+                <dd>
+                    <span>{{ scoreBoard.relativePlayerCount }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.scoreBoard.match">Match</span></dt>
+                <dd>
+                    <div *ngIf="scoreBoard.matchId">
+                        <a [routerLink]="['/match', scoreBoard.matchId, 'view']">{{ scoreBoard.matchId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/score-board', scoreBoard.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
