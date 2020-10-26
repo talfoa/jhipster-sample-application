@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-score-board-heading" jhiTranslate="jhipsterSampleApplicationApp.scoreBoard.home.createOrEditLabel">Create or edit a Score Board</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.scoreBoard.timeOfMessage" for="field_timeOfMessage">Time Of Message</label>
+                    <div class="d-flex">
+                        <input id="field_timeOfMessage" type="datetime-local" class="form-control" name="timeOfMessage" formControlName="timeOfMessage" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.scoreBoard.gamePart" for="field_gamePart">Game Part</label>
+                    <input type="text" class="form-control" name="gamePart" id="field_gamePart"
+                           formControlName="gamePart"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.scoreBoard.score" for="field_score">Score</label>
+                    <input type="text" class="form-control" name="score" id="field_score"
+                           formControlName="score"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.scoreBoard.scorePart" for="field_scorePart">Score Part</label>
+                    <input type="text" class="form-control" name="scorePart" id="field_scorePart"
+                           formControlName="scorePart"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.scoreBoard.hidden" for="field_hidden">Hidden</label>
+                    <input type="checkbox" class="form-control" name="hidden" id="field_hidden"
+                           formControlName="hidden"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.scoreBoard.hideTimer" for="field_hideTimer">Hide Timer</label>
+                    <input type="checkbox" class="form-control" name="hideTimer" id="field_hideTimer"
+                           formControlName="hideTimer"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.scoreBoard.remainingTimeInPeriod" for="field_remainingTimeInPeriod">Remaining Time In Period</label>
+                    <input type="number" class="form-control" name="remainingTimeInPeriod" id="field_remainingTimeInPeriod"
+                           formControlName="remainingTimeInPeriod"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.scoreBoard.relativePlayerCount" for="field_relativePlayerCount">Relative Player Count</label>
+                    <input type="number" class="form-control" name="relativePlayerCount" id="field_relativePlayerCount"
+                           formControlName="relativePlayerCount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.scoreBoard.match" for="field_match">Match</label>
+                    <select class="form-control" id="field_match" name="match" formControlName="matchId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="matchOption.id" *ngFor="let matchOption of matches; trackBy: trackById">{{ matchOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

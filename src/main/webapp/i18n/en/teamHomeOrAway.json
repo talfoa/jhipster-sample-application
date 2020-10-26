@@ -1,0 +1,9 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "TeamHomeOrAway": {
+      "null": "",
+      "HOME": "HOME",
+      "AWAY": "AWAY"
+    }
+  }
+}

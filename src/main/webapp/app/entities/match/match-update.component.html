@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-match-heading" jhiTranslate="jhipsterSampleApplicationApp.match.home.createOrEditLabel">Create or edit a Match</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.match.timeOfMessage" for="field_timeOfMessage">Time Of Message</label>
+                    <div class="d-flex">
+                        <input id="field_timeOfMessage" type="datetime-local" class="form-control" name="timeOfMessage" formControlName="timeOfMessage" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.match.matchId" for="field_matchId">Match Id</label>
+                    <input type="number" class="form-control" name="matchId" id="field_matchId"
+                           formControlName="matchId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.match.matchDate" for="field_matchDate">Match Date</label>
+                    <div class="d-flex">
+                        <input id="field_matchDate" type="datetime-local" class="form-control" name="matchDate" formControlName="matchDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.match.cornerSending" for="field_cornerSending">Corner Sending</label>
+                    <input type="checkbox" class="form-control" name="cornerSending" id="field_cornerSending"
+                           formControlName="cornerSending"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.match.sport" for="field_sport">Sport</label>
+                    <select class="form-control" id="field_sport" name="sport" formControlName="sportId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sportOption.id" *ngFor="let sportOption of sports; trackBy: trackById">{{ sportOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.match.region" for="field_region">Region</label>
+                    <select class="form-control" id="field_region" name="region" formControlName="regionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="regionOption.id" *ngFor="let regionOption of regions; trackBy: trackById">{{ regionOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.match.league" for="field_league">League</label>
+                    <select class="form-control" id="field_league" name="league" formControlName="leagueId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="leagueOption.id" *ngFor="let leagueOption of leagues; trackBy: trackById">{{ leagueOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.match.homeTeam" for="field_homeTeam">Home Team</label>
+                    <select class="form-control" id="field_homeTeam" name="homeTeam" formControlName="homeTeamId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="teamOption.id" *ngFor="let teamOption of hometeams; trackBy: trackById">{{ teamOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.match.awayTeam" for="field_awayTeam">Away Team</label>
+                    <select class="form-control" id="field_awayTeam" name="awayTeam" formControlName="awayTeamId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="teamOption.id" *ngFor="let teamOption of awayteams; trackBy: trackById">{{ teamOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

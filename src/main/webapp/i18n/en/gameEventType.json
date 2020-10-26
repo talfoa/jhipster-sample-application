@@ -1,0 +1,11 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "GameEventType": {
+      "null": "",
+      "GOAL": "GOAL",
+      "YELLOW_CARD": "YELLOW_CARD",
+      "RED_CARD": "RED_CARD",
+      "CORNER": "CORNER"
+    }
+  }
+}

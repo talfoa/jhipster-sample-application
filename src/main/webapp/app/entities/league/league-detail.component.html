@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="league">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.league.detail.title">League</span> {{ league.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.league.name">Name</span></dt>
+                <dd>
+                    <span>{{ league.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.league.sport">Sport</span></dt>
+                <dd>
+                    <div *ngIf="league.sportId">
+                        <a [routerLink]="['/sport', league.sportId, 'view']">{{ league.sportId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.league.region">Region</span></dt>
+                <dd>
+                    <div *ngIf="league.regionId">
+                        <a [routerLink]="['/region', league.regionId, 'view']">{{ league.regionId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/league', league.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
