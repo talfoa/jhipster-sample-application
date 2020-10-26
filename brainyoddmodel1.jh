@@ -1,0 +1,114 @@
+
+entity Region {
+	regionName String required
+    
+}
+
+entity Sport {
+	name String required
+}
+
+
+// an ignored comment
+/** not an ignored comment */
+entity League {
+	name String required
+}
+
+entity Team{
+	name String required,
+    color String,
+    flag String
+}
+
+entity Player{
+	name String required,
+    nickName String,
+    shirtNumber Integer,
+    position String
+}
+
+entity Match{
+	timeOfMessage Instant,
+    matchId Long,
+    matchDate Instant,
+    cornerSending Boolean
+
+}
+entity GameEvent{
+	timeOfMessage Instant,
+	gameEventId Long,
+	eventType  GameEventType
+	team TeamHomeOrAway,
+    active Boolean,
+    timeOfEventOccurence Instant
+}
+
+enum TeamHomeOrAway{
+	HOME, AWAY
+}
+enum GameEventType{
+	GOAL, YELLOW_CARD, RED_CARD, CORNER
+}
+relationship ManyToOne{
+	GameEvent{match} to Match,
+    ScoreBoard{match} to Match
+}
+
+entity ScoreBoard{
+	timeOfMessage Instant,
+	gamePart String,
+	score String,
+	scorePart String,
+	hidden Boolean,
+	hideTimer Boolean,
+	remainingTimeInPeriod Integer,
+	relativePlayerCount Integer
+}
+
+
+relationship OneToOne {
+	Match{sport} to Sport,
+	Match{region} to Region,
+	Match{league} to League,
+    Match{homeTeam} to Team,
+    Match{awayTeam} to Team
+}
+relationship OneToOne {
+	League{sport} to Sport
+}
+relationship ManyToOne {
+	League{region} to Region,
+}
+
+relationship ManyToOne {
+	Player{team} to Team,
+}
+
+
+relationship OneToOne {
+	Team{sport} to Sport,
+}
+
+relationship OneToOne {
+	Department{location} to Location
+}
+
+relationship ManyToMany {
+	Team{league} to League{team}
+}
+
+
+
+// Use Data Transfer Objects (DTO)
+ dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
+
+
+
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
