@@ -1,0 +1,102 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-opportunity-heading" jhiTranslate="jhipsterSampleApplicationApp.opportunity.home.createOrEditLabel">Create or edit a Opportunity</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.opportunity.timeOfMessage" for="field_timeOfMessage">Time Of Message</label>
+                    <div class="d-flex">
+                        <input id="field_timeOfMessage" type="datetime-local" class="form-control" name="timeOfMessage" formControlName="timeOfMessage" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.opportunity.opportunityId" for="field_opportunityId">Opportunity Id</label>
+                    <input type="number" class="form-control" name="opportunityId" id="field_opportunityId"
+                           formControlName="opportunityId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.opportunity.type" for="field_type">Type</label>
+                    <input type="text" class="form-control" name="type" id="field_type"
+                           formControlName="type"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.opportunity.handicap" for="field_handicap">Handicap</label>
+                    <input type="text" class="form-control" name="handicap" id="field_handicap"
+                           formControlName="handicap"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.opportunity.line" for="field_line">Line</label>
+                    <input type="text" class="form-control" name="line" id="field_line"
+                           formControlName="line"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.opportunity.sequence" for="field_sequence">Sequence</label>
+                    <input type="text" class="form-control" name="sequence" id="field_sequence"
+                           formControlName="sequence"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.opportunity.tradingStatus" for="field_tradingStatus">Trading Status</label>
+                    <input type="number" class="form-control" name="tradingStatus" id="field_tradingStatus"
+                           formControlName="tradingStatus"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.opportunity.actualTradingTime" for="field_actualTradingTime">Actual Trading Time</label>
+                    <div class="d-flex">
+                        <input id="field_actualTradingTime" type="datetime-local" class="form-control" name="actualTradingTime" formControlName="actualTradingTime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.opportunity.note" for="field_note">Note</label>
+                    <input type="text" class="form-control" name="note" id="field_note"
+                           formControlName="note"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.opportunity.betStop" for="field_betStop">Bet Stop</label>
+                    <input type="number" class="form-control" name="betStop" id="field_betStop"
+                           formControlName="betStop"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.opportunity.results" for="field_results">Results</label>
+                    <input type="text" class="form-control" name="results" id="field_results"
+                           formControlName="results"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.opportunity.match" for="field_match">Match</label>
+                    <select class="form-control" id="field_match" name="match" formControlName="matchId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="matchOption.id" *ngFor="let matchOption of matches; trackBy: trackById">{{ matchOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

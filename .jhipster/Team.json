@@ -1,0 +1,52 @@
+{
+  "name": "Team",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "color",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "flag",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "player",
+      "otherEntityRelationshipName": "team",
+      "relationshipName": "player"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "league",
+      "otherEntityRelationshipName": "team",
+      "relationshipName": "league",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "sport",
+      "otherEntityRelationshipName": "sport",
+      "relationshipName": "sport",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201027022510",
+  "entityTableName": "team",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

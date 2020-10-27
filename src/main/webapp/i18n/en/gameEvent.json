@@ -1,0 +1,28 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "gameEvent": {
+      "home": {
+        "title": "Game Events",
+        "createLabel": "Create a new Game Event",
+        "createOrEditLabel": "Create or edit a Game Event",
+        "notFound": "No Game Events found"
+      },
+      "created": "A new Game Event is created with identifier {{ param }}",
+      "updated": "A Game Event is updated with identifier {{ param }}",
+      "deleted": "A Game Event is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Game Event {{ id }}?"
+      },
+      "detail": {
+        "title": "Game Event"
+      },
+      "timeOfMessage": "Time Of Message",
+      "gameEventId": "Game Event Id",
+      "eventType": "Event Type",
+      "team": "Team",
+      "active": "Active",
+      "timeOfEventOccurence": "Time Of Event Occurence",
+      "match": "Match"
+    }
+  }
+}
