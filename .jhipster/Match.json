@@ -1,0 +1,87 @@
+{
+  "name": "Match",
+  "fields": [
+    {
+      "fieldName": "timeOfMessage",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "matchId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "matchDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "cornerSending",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "gameEvent",
+      "otherEntityRelationshipName": "match",
+      "relationshipName": "gameEvent"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "scoreBoard",
+      "otherEntityRelationshipName": "match",
+      "relationshipName": "scoreBoard"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "opportunity",
+      "otherEntityRelationshipName": "match",
+      "relationshipName": "opportunity"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "team",
+      "otherEntityRelationshipName": "match",
+      "relationshipName": "homeTeam",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "team",
+      "otherEntityRelationshipName": "match",
+      "relationshipName": "awayTeam",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "league",
+      "otherEntityRelationshipName": "match",
+      "relationshipName": "league",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "sport",
+      "otherEntityRelationshipName": "match",
+      "relationshipName": "sport",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "region",
+      "otherEntityRelationshipName": "match",
+      "relationshipName": "region",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201027022710",
+  "entityTableName": "match",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

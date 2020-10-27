@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="opportunity">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.opportunity.detail.title">Opportunity</span> {{ opportunity.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.opportunity.timeOfMessage">Time Of Message</span></dt>
+                <dd>
+                    <span>{{ opportunity.timeOfMessage }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.opportunity.opportunityId">Opportunity Id</span></dt>
+                <dd>
+                    <span>{{ opportunity.opportunityId }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.opportunity.type">Type</span></dt>
+                <dd>
+                    <span>{{ opportunity.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.opportunity.handicap">Handicap</span></dt>
+                <dd>
+                    <span>{{ opportunity.handicap }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.opportunity.line">Line</span></dt>
+                <dd>
+                    <span>{{ opportunity.line }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.opportunity.sequence">Sequence</span></dt>
+                <dd>
+                    <span>{{ opportunity.sequence }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.opportunity.tradingStatus">Trading Status</span></dt>
+                <dd>
+                    <span>{{ opportunity.tradingStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.opportunity.actualTradingTime">Actual Trading Time</span></dt>
+                <dd>
+                    <span>{{ opportunity.actualTradingTime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.opportunity.note">Note</span></dt>
+                <dd>
+                    <span>{{ opportunity.note }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.opportunity.betStop">Bet Stop</span></dt>
+                <dd>
+                    <span>{{ opportunity.betStop }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.opportunity.results">Results</span></dt>
+                <dd>
+                    <span>{{ opportunity.results }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.opportunity.match">Match</span></dt>
+                <dd>
+                    <div *ngIf="opportunity.matchId">
+                        <a [routerLink]="['/match', opportunity.matchId, 'view']">{{ opportunity.matchId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/opportunity', opportunity.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

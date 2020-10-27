@@ -49,6 +49,24 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.myapp.domain.User.class.getName() + ".authorities");
             createCache(cm, com.mycompany.myapp.domain.PersistentToken.class.getName());
             createCache(cm, com.mycompany.myapp.domain.User.class.getName() + ".persistentTokens");
+            createCache(cm, com.mycompany.myapp.domain.Region.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Region.class.getName() + ".leagues");
+            createCache(cm, com.mycompany.myapp.domain.Sport.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Sport.class.getName() + ".leagues");
+            createCache(cm, com.mycompany.myapp.domain.Sport.class.getName() + ".sports");
+            createCache(cm, com.mycompany.myapp.domain.League.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.League.class.getName() + ".teams");
+            createCache(cm, com.mycompany.myapp.domain.Team.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Team.class.getName() + ".players");
+            createCache(cm, com.mycompany.myapp.domain.Team.class.getName() + ".leagues");
+            createCache(cm, com.mycompany.myapp.domain.Player.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Match.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Match.class.getName() + ".gameEvents");
+            createCache(cm, com.mycompany.myapp.domain.Match.class.getName() + ".scoreBoards");
+            createCache(cm, com.mycompany.myapp.domain.Match.class.getName() + ".opportunities");
+            createCache(cm, com.mycompany.myapp.domain.GameEvent.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.ScoreBoard.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Opportunity.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,30 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "scoreBoard": {
+      "home": {
+        "title": "Score Boards",
+        "createLabel": "Create a new Score Board",
+        "createOrEditLabel": "Create or edit a Score Board",
+        "notFound": "No Score Boards found"
+      },
+      "created": "A new Score Board is created with identifier {{ param }}",
+      "updated": "A Score Board is updated with identifier {{ param }}",
+      "deleted": "A Score Board is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Score Board {{ id }}?"
+      },
+      "detail": {
+        "title": "Score Board"
+      },
+      "timeOfMessage": "Time Of Message",
+      "gamePart": "Game Part",
+      "score": "Score",
+      "scorePart": "Score Part",
+      "hidden": "Hidden",
+      "hideTimer": "Hide Timer",
+      "remainingTimeInPeriod": "Remaining Time In Period",
+      "relativePlayerCount": "Relative Player Count",
+      "match": "Match"
+    }
+  }
+}

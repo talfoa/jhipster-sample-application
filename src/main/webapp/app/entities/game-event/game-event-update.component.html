@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-game-event-heading" jhiTranslate="jhipsterSampleApplicationApp.gameEvent.home.createOrEditLabel">Create or edit a Game Event</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.gameEvent.timeOfMessage" for="field_timeOfMessage">Time Of Message</label>
+                    <div class="d-flex">
+                        <input id="field_timeOfMessage" type="datetime-local" class="form-control" name="timeOfMessage" formControlName="timeOfMessage" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.gameEvent.gameEventId" for="field_gameEventId">Game Event Id</label>
+                    <input type="number" class="form-control" name="gameEventId" id="field_gameEventId"
+                           formControlName="gameEventId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.gameEvent.eventType" for="field_eventType">Event Type</label>
+                    <select class="form-control" name="eventType" formControlName="eventType" id="field_eventType">
+                        <option value="GOAL">{{ 'jhipsterSampleApplicationApp.GameEventType.GOAL' | translate }}</option>
+                        <option value="YELLOW_CARD">{{ 'jhipsterSampleApplicationApp.GameEventType.YELLOW_CARD' | translate }}</option>
+                        <option value="RED_CARD">{{ 'jhipsterSampleApplicationApp.GameEventType.RED_CARD' | translate }}</option>
+                        <option value="CORNER">{{ 'jhipsterSampleApplicationApp.GameEventType.CORNER' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.gameEvent.team" for="field_team">Team</label>
+                    <select class="form-control" name="team" formControlName="team" id="field_team">
+                        <option value="HOME">{{ 'jhipsterSampleApplicationApp.TeamHomeOrAway.HOME' | translate }}</option>
+                        <option value="AWAY">{{ 'jhipsterSampleApplicationApp.TeamHomeOrAway.AWAY' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.gameEvent.active" for="field_active">Active</label>
+                    <input type="checkbox" class="form-control" name="active" id="field_active"
+                           formControlName="active"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.gameEvent.timeOfEventOccurence" for="field_timeOfEventOccurence">Time Of Event Occurence</label>
+                    <div class="d-flex">
+                        <input id="field_timeOfEventOccurence" type="datetime-local" class="form-control" name="timeOfEventOccurence" formControlName="timeOfEventOccurence" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.gameEvent.match" for="field_match">Match</label>
+                    <select class="form-control" id="field_match" name="match" formControlName="matchId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="matchOption.id" *ngFor="let matchOption of matches; trackBy: trackById">{{ matchOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

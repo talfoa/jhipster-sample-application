@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="gameEvent">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.gameEvent.detail.title">Game Event</span> {{ gameEvent.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.gameEvent.timeOfMessage">Time Of Message</span></dt>
+                <dd>
+                    <span>{{ gameEvent.timeOfMessage }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.gameEvent.gameEventId">Game Event Id</span></dt>
+                <dd>
+                    <span>{{ gameEvent.gameEventId }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.gameEvent.eventType">Event Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhipsterSampleApplicationApp.GameEventType.' + gameEvent.eventType }}">{{ gameEvent.eventType }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.gameEvent.team">Team</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhipsterSampleApplicationApp.TeamHomeOrAway.' + gameEvent.team }}">{{ gameEvent.team }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.gameEvent.active">Active</span></dt>
+                <dd>
+                    <span>{{ gameEvent.active }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.gameEvent.timeOfEventOccurence">Time Of Event Occurence</span></dt>
+                <dd>
+                    <span>{{ gameEvent.timeOfEventOccurence }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.gameEvent.match">Match</span></dt>
+                <dd>
+                    <div *ngIf="gameEvent.matchId">
+                        <a [routerLink]="['/match', gameEvent.matchId, 'view']">{{ gameEvent.matchId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/game-event', gameEvent.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

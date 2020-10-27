@@ -1,0 +1,51 @@
+{
+  "name": "GameEvent",
+  "fields": [
+    {
+      "fieldName": "timeOfMessage",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "gameEventId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "eventType",
+      "fieldType": "GameEventType",
+      "fieldValues": "GOAL,YELLOW_CARD,RED_CARD,CORNER"
+    },
+    {
+      "fieldName": "team",
+      "fieldType": "TeamHomeOrAway",
+      "fieldValues": "HOME,AWAY"
+    },
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "timeOfEventOccurence",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "match",
+      "otherEntityRelationshipName": "gameEvent",
+      "relationshipName": "match",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201027022810",
+  "entityTableName": "game_event",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
