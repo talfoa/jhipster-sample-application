@@ -1,0 +1,131 @@
+
+entity Region {
+	regionName String required
+    
+}
+
+entity Sport {
+	name String required
+}
+
+
+// an ignored comment
+/** not an ignored comment */
+entity League {
+	name String required
+}
+
+entity Team{
+	name String required,
+    color String,
+    flag String
+}
+
+entity Player{
+	name String required,
+    nickName String,
+    shirtNumber Integer,
+    position String
+}
+
+entity Match{
+	timeOfMessage Instant,
+    matchId Long,
+    matchDate Instant,
+    cornerSending Boolean,
+    league League,
+
+}
+
+relationship ManyToOne{
+	Match{homeTeam} to Team,
+    Match{awayTeam} to Team
+}
+
+entity GameEvent{
+	timeOfMessage Instant,
+	gameEventId Long,
+	eventType  GameEventType
+	team TeamHomeOrAway,
+    active Boolean,
+    timeOfEventOccurence Instant
+}
+
+enum TeamHomeOrAway{
+	HOME, AWAY
+}
+enum GameEventType{
+	GOAL, YELLOW_CARD, RED_CARD, CORNER
+}
+relationship ManyToOne{
+	GameEvent{match} to Match{gameEvent},
+    ScoreBoard{match} to Match{scoreBoard}
+}
+
+entity ScoreBoard{
+	timeOfMessage Instant,
+	gamePart String,
+	score String,
+	scorePart String,
+	hidden Boolean,
+	hideTimer Boolean,
+	remainingTimeInPeriod Integer,
+	relativePlayerCount Integer
+}
+
+entity Opportunity{
+	timeOfMessage Instant,
+	opportunityId Long,
+    type String,
+    handicap String,
+    line String,
+    sequence String,
+    tradingStatus Integer,
+    actualTradingTime Instant,
+    note String,
+    betStop Integer,
+    results String
+}
+
+relationship ManyToOne {
+	Opportunity{match} to Match{opportunity}
+}
+
+relationship ManyToOne {
+	Match{sport} to Sport,
+    Match{region} to Region,
+}
+
+relationship ManyToOne {
+	League{sport} to Sport{league}
+}
+relationship ManyToOne {
+	League{region} to Region{league},
+}
+
+relationship ManyToOne {
+	Player{team} to Team{player},
+}
+
+relationship ManyToOne {
+	Team{sport} to Sport{sport},
+}
+
+relationship ManyToMany {
+	Team{league} to League{team}
+}
+
+
+
+// Use Data Transfer Objects (DTO)
+ dto * with mapstruct
+
+// Set service layer
+service all with serviceImpl 
+
+
+
+
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
